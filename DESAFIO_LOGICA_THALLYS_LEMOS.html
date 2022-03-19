@@ -1,0 +1,45 @@
+<meta charset="UTF-8">
+
+<script>
+
+
+	function pulalinha() {
+
+		document.write("<br><br>");
+	}
+
+	function mostra (frase) {
+
+		document.write(frase);
+	}
+	var distanciaPercorrida = parseFloat(prompt("Qual a distância percorrida de sua casa até o trabalho (em km)?"));
+	var consumoMedio = parseFloat(prompt("Qual oconsumo médio do seu veículo (em Km/L)?"));
+	var consumoNecessarioLitros = distanciaPercorrida/consumoMedio;
+	var quantidadePostos = parseInt(prompt("Em quantos postos você pesquisou?"));
+	var precosCombustivel = [];
+
+	for(contador = 1; contador <= quantidadePostos; contador++){
+
+		var preco = parseFloat(prompt("Qual é o valor do combustível no posto " + contador + " ?"));
+		precosCombustivel.push(preco);
+
+	}
+	var somaPrecos = 0;
+
+	for(elementoArray = 0; elementoArray < precosCombustivel.length; elementoArray++) {
+		somaPrecos += precosCombustivel[elementoArray];
+	}
+
+	var mediaPrecos = somaPrecos/precosCombustivel.length;
+	var menorValor = Math.min.apply(null, precosCombustivel);
+	var gastoDiario = 2*(menorValor*consumoNecessarioLitros);
+	
+	mostra("O consumo necessário de casa para o trabalho é " + consumoNecessarioLitros + " litros.");
+	pulalinha();
+	mostra("O menor preço pesquisado é " + menorValor + " R$.");
+	pulalinha();
+	mostra("A média de preços é " + mediaPrecos + " R$.");
+	pulalinha();
+	mostra("O gasto diário (ida e volta) é " + gastoDiario + " R$.");
+	
+</script>
