@@ -5,7 +5,7 @@
 
 	function pulalinha() {
 
-		document.write("<br><br>");
+		document.write("<br><hr><br>");
 	}
 
 	function mostra (frase) {
@@ -19,8 +19,17 @@
 	var precosCombustivel = [];
 
 	for(contador = 1; contador <= quantidadePostos; contador++){
+		var teste = 0;
+    
+		while(teste == 0) {	
+			var preco = parseFloat(prompt("Qual é o valor do combustível no posto " + contador + " ?")) ;
 
-		var preco = parseFloat(prompt("Qual é o valor do combustível no posto " + contador + " ?"));
+			if(isNaN(preco)  == true) {
+			
+				alert("Esse campo só aceita números!!")
+			
+			} else teste++;
+		} 
 		precosCombustivel.push(preco);
 
 	}
